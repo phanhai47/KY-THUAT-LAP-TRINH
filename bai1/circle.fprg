@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.6">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dbinh"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-05 10:42:29 PM"/>
+        <attribute name="created" value="ZGJpbmg7IEJJTkg7IDIwMjUtMTItMDU7IDEwOjEyOjU3IFBNOyAyMTc5"/>
+        <attribute name="edited" value="ZGJpbmg7IEJJTkg7IDIwMjUtMTItMDU7IDEwOjQyOjI5IFBNOyAyMTgx"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;sinh vien Phan Dinh Hai&quot;"/>
+            <output expression="&quot;MSSV 245752021610016&quot;"/>
+            <declare name="x" type="Integer" array="False" size=""/>
+            <output expression="&quot;input the radius of the circle&quot;"/>
+            <input variable="x"/>
+            <output expression="&quot;Area is&quot;&amp;Circle(x)"/>
+        </body>
+    </function>
+    <function name="Circle" type="Real" variable="Area">
+        <parameters>
+            <parameter name="Radius" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="Area" type="Real" array="False" size=""/>
+            <assign variable="Area" expression="Pi*Radius*2"/>
+        </body>
+    </function>
+</flowgorithm>

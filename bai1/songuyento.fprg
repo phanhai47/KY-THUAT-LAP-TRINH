@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.6">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="dbinh"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-12-05 10:53:37 PM"/>
+        <attribute name="created" value="ZGJpbmg7IEJJTkg7IDIwMjUtMTItMDU7IDEwOjEyOjU3IFBNOyAyMTc5"/>
+        <attribute name="edited" value="ZGJpbmg7IEJJTkg7IDIwMjUtMTItMDU7IDEwOjUzOjM3IFBNOyAyMTgy"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <output expression="&quot;sinh vien Phan Dinh Hai&quot;"/>
+            <output expression="&quot;MSSV 245752021610016&quot;"/>
+            <declare name="n, i" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <if expression="n==1">
+                <then>
+                    <output expression="&quot;n khong la so nguyen to&quot;"/>
+                </then>
+                <else>
+                    <if expression="n&lt;4">
+                        <then>
+                            <output expression="&quot;n la so nguyen to&quot;"/>
+                        </then>
+                        <else>
+                            <assign variable="i" expression="2"/>
+                            <while expression="n%i!=0">
+                                <assign variable="i" expression="i+1"/>
+                            </while>
+                            <if expression="i==n">
+                                <then>
+                                    <output expression="&quot; n la so nguyen to&quot;"/>
+                                </then>
+                                <else>
+                                    <output expression="&quot;n khong la so nguyen to&quot;"/>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </else>
+            </if>
+        </body>
+    </function>
+    <function name="Circle" type="Real" variable="Area">
+        <parameters>
+            <parameter name="Radius" type="Real" array="False"/>
+        </parameters>
+        <body>
+            <declare name="Area" type="Real" array="False" size=""/>
+            <assign variable="Area" expression="Pi*Radius*2"/>
+        </body>
+    </function>
+</flowgorithm>
