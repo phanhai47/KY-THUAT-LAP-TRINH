@@ -1,0 +1,18 @@
+print("Sipnh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+import math
+class Circle(object):
+    def __init__(self,radius):
+        self.radius = radius
+    def area(self):
+        #dien tich hinh trong
+        return math.pi*(self.radius**2)
+    def perimeter(self):
+        #chu vi hinh tron
+        return 2*math.pi *self.radius
+
+my_circle =Circle(5)
+print("Ban kinh :",my_circle.radius)
+print("dien tich",my_circle.area())
+print("chu vi:",my_circle.perimeter())

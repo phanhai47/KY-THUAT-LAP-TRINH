@@ -1,0 +1,36 @@
+print("Sipnh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+
+class py_solution:
+    """Class chứa phương thức chuyển đổi số La Mã sang số nguyên."""
+    def roman_to_int(self, s):
+        """
+        Chuyển đổi chuỗi số La Mã (s) thành số nguyên.
+        Sử dụng quy tắc cộng (I, V, X, L, C, D, M) và quy tắc trừ.
+        """
+        # Định nghĩa giá trị cho từng ký tự La Mã
+        rom_val = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        int_val = 0
+        # Duyệt qua chuỗi số La Mã
+        for i in range(len(s)):
+
+            # Quy tắc Trừ: Nếu ký tự hiện tại có giá trị nhỏ hơn ký tự tiếp theo,
+            # thì trừ giá trị của ký tự hiện tại.
+            if i > 0 and rom_val[s[i]] > rom_val[s[i - 1]]:
+                # Công thức: int_val = int_val + rom_val[s[i]] - 2 * rom_val[s[i - 1]]
+                # Vì duyệt: int_val đang là +1 ở lần i=1, 5 - 2*1 = 4
+                int_val = int_val + rom_val[s[i]] - 2 * rom_val[s[i - 1]]
+            else:
+                # Quy tắc Cộng: Cộng giá trị của ký tự hiện tại.
+                int_val += rom_val[s[i]]
+        return int_val
+
+# Tạo đối tượng
+solution = py_solution()
+
+# Kiểm tra ví dụ
+print(solution.roman_to_int('MMMCMLXXXVI'))
+print(solution.roman_to_int('MCMXCIV'))
+print(solution.roman_to_int('IL'))
