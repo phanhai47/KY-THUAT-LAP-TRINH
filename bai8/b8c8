@@ -1,0 +1,23 @@
+print("Sinh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+import tkinter as tk
+from tkinter import ttk
+def create_personal_info_form():
+    # Khởi tạo cửa sổ
+    info_window = tk.Tk()
+    info_window.title("Thông Tin Cá Nhân")
+    info_window.geometry("350x200")
+    # Danh sách các trường thông tin
+    labels = ["Họ Tên:", "Ngày Tháng Năm Sinh:", "MSSV:", "Ngành Học:"]
+    # Tạo các Label và Entry
+    for i, text in enumerate(labels):
+        # Label (Trường tiêu đề)
+        lbl = ttk.Label(info_window, text=text, font=('Arial', 10))
+        lbl.grid(row=i, column=0, padx=10, pady=5, sticky=tk.W)  # sticky=tk.W căn lề trái
+        # Entry (Ô nhập liệu trống)
+        entry = ttk.Entry(info_window, width=30)
+        entry.grid(row=i, column=1, padx=10, pady=5, sticky=tk.W)
+    info_window.mainloop()
+if __name__ == "__main__":
+    create_personal_info_form()

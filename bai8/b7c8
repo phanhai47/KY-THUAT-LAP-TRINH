@@ -1,0 +1,86 @@
+print("Sinh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+from tkinter import *
+from random import shuffle
+from tkinter import messagebox
+
+colors = ['Red','Green','Pink','Black','Yellow','Orange','White','Purple','Brown']
+
+score = 0
+timeleft = 0
+game_started = False
+
+def startGame(event):
+    global timeleft
+    global game_started
+    global score
+
+    if not game_started:
+        game_started = True
+        timeleft = 120
+        score = 0
+        scoreLabel.config(text="Score: " + str(score))
+        countdown()
+        nextColour()
+def nextColour():
+    global score
+    global timeleft
+    global game_started
+    if timeleft > 0 and game_started:
+        # Nếu có nhập nội dung
+        user_input = e.get().strip().lower()
+        displayed_color_name = label["text"].lower()   # chữ đang hiện
+        correct_color = label["fg"].lower()            # màu chữ (đáp án)
+        if user_input != "":
+            # Kiểm tra đúng màu chữ
+            if user_input == correct_color:
+                score += 2
+            else:
+                score -= 1
+            scoreLabel.config(text="Score: " + str(score))
+        e.delete(0, END)
+        # Shuffle màu, lấy màu mới
+        shuffle(colors)
+        label.config(text=colors[0], fg=colors[1])
+
+        e.focus_set()
+
+def countdown():
+    global timeleft
+    global game_started
+
+    if timeleft > 0 and game_started:
+        timeleft -= 1
+        timeLabel.config(text="Time left: " + str(timeleft))
+        timeLabel.after(1000, countdown)
+    else:
+        game_started = False
+        label.config(text="Hết giờ!", fg="black")
+        messagebox.showinfo("Kết thúc", f"Điểm của bạn: {score}")
+
+# ----------------- UI -----------------
+root = Tk()
+root.title("COLOR GAME")
+root.geometry("450x250")
+instructions = Label(root, text="Nhập tên **màu chữ** (không phải chữ viết!)\nNhấn Enter để bắt đầu",
+                    font=('Helvetica', 12))
+instructions.pack()
+
+scoreLabel = Label(root, text="Nhấn Enter để bắt đầu",
+                   font=('Helvetica', 12))
+scoreLabel.pack()
+timeLabel = Label(root, text="Time left: 0",
+                  font=('Helvetica', 12))
+timeLabel.pack()
+label = Label(root, font=('Helvetica', 60))
+label.pack()
+e = Entry(root, font=('Helvetica', 14))
+e.pack()
+e.focus_set()
+# Enter để bắt đầu game
+root.bind('<Return>', startGame)
+# Enter để kiểm tra đáp án và chuyển màu
+e.bind('<Return>', lambda event: nextColour())
+root.mainloop()

@@ -1,0 +1,18 @@
+print("Sipnh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+from tkinter import *
+
+def clicked():
+    lbl.configure(text="button was clicked !!")
+window = Tk()
+window.title("welcome to likegeeks app")
+window.geometry('300x200')
+
+lbl = Label(window, text="Hello")
+lbl.grid(column=0, row=0)
+
+btn = Button(window, text="click me", command=clicked)
+btn.grid(column=1, row=0)
+window.mainloop()
