@@ -1,0 +1,25 @@
+print("Sinh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+import sort_module
+def get_list_from_user():
+    #1.nhap danh sach
+    data_input = input("Nhap danh sach cac so, cach nhau boi dau phay: ")
+    try :
+        #chuyen doi chuoi nhap thanh danh sach so nguyen
+        dlist = [int(x.strip()) for x in data_input.split(',')]
+        return dlist
+    except ValueError:
+        print("Gia tri khong hop le. Vui long nhap lai.")
+        return None
+    
+#chuong trinh chinh
+dlist = get_list_from_user()
+if dlist is not None:
+    #sao chep danh sach de giu lai danh sach goc va truyen ban sao vao ham
+    list_to_sort = dlist[:]
+    print("Danh sach ban dau:", list_to_sort)
+    sorted_list = sort_module.bubbleSort(list_to_sort)
+    print("Danh sach sau khi sap xep:", sorted_list)
+ 

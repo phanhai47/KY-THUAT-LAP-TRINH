@@ -1,0 +1,7 @@
+print("Sinh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+import numpy as np
+x=np.arange(1,11)
+print("Mang x:",x)

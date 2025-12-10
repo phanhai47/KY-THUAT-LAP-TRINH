@@ -1,0 +1,22 @@
+print("Sinh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+import numpy as np
+#du lieu dau vao
+student_id= np.array([101, 102, 103, 104, 105])
+student_height= np.array([45, 48, 46, 57, 58])
+#1.su dung np.lexsort de lay chi so sap xep
+#chu y : lexsort sap xep theo thu tu phai sang trai
+#ta muon sap xep theo cheu cao cap 1 roi moi den id cap 2
+#thu tu truyen vao se la [id, height](cot cap 2, cot cap 1)
+#sap xep theo : student_height (cap 1), student_id (cap 2)
+indeces = np.lexsort((student_id, student_height))
+print("Chi so sap xep:", indeces)
+print("\n du lieu sap xep:")
+#2. AP dung chi so sap xep len ca 2 mang
+sorted_id = student_id[indeces]
+sorted_height = student_height[indeces]
+#in ket qua 
+for i in range(len(sorted_id)):
+    print(f"{sorted_id[i]:<7} {sorted_height[i]:>5.1f}")
