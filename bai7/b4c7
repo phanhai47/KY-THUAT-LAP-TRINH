@@ -1,0 +1,19 @@
+print("Sipnh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+def read_first_n_lines(file_path,n):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            for i in range(n):
+                line = f.readline()
+                if not line:
+                    break
+                print(line, end='')
+    except Exception as e:
+        print(f"da xay ra loi:{e}")
+    except FileNotFoundError:
+        print(f"khong tin thay file tai duong dan")
+file_duong_dan ="b.txt"
+so_dong=3
+read_first_n_lines(file_duong_dan, so_dong)

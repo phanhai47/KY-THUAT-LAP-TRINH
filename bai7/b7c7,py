@@ -1,0 +1,12 @@
+print("Sipnh vien : Phan Dinh Hai")
+print("245752021610016")
+print("##################################")
+
+def count_line(file_path):
+    try:
+        with open(file_path, 'r', encoding='utf-8') as f:
+            line_count = len(f.readlines())
+            print(f"tong so dong trong tep la: {line_count}")
+    except FileNotFoundError:
+        print(f"loi ko tim thay file")
+count_line("a.txt")
